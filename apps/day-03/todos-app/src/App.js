@@ -13,7 +13,7 @@ class App extends Component {
       todos: []
     };
 
-    this.addTodo = this.addTodo.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleToggle = this.handleToggle.bind(this);
   }
@@ -25,15 +25,11 @@ class App extends Component {
         this.setState({ todos }); 
       })
       .catch(error => {
-        console.log('Failed: Get todos failed.', error)
+        console.log('Error: Get todos failed.', error)
       });
   }
 
-  addTodo(todoText) {
-    // let id = this.state.todos.length > 0
-    //     ? this.state.todos[this.state.todos.length - 1].id + 1
-    //     : 1;
-
+  handleAdd(todoText) {
     const newTodo = { text: todoText, done: false };
 
     TodoApi.addTodo(newTodo)
@@ -44,22 +40,7 @@ class App extends Component {
         this.setState({ todos }); 
       })
       .catch(error => {
-        console.log('Failed: Add todo failed.', error)
-      });
-  }
-
-  handleDelete(id) {
-    TodoApi.deleteTodo(id)
-      .then(() => {
-        console.log('Success: Delete todo successful.');
-
-        this.setState((prevState) => {
-          const todos = prevState.todos.filter(t => t.id !== id);
-          return { todos };
-        });
-      })
-      .catch(error => {
-        console.log('Failed: Delete todo failed.', error)
+        console.log('Error: Add todo failed.', error)
       });
   }
 
@@ -78,9 +59,23 @@ class App extends Component {
         });
       })
       .catch(error => {
-        console.log('Failed: Update todo failed.', error)
+        console.log('Error: Update todo failed.', error)
       });
+  }
 
+  handleDelete(id) {
+    TodoApi.deleteTodo(id)
+      .then(() => {
+        console.log('Success: Delete todo successful.');
+
+        this.setState((prevState) => {
+          const todos = prevState.todos.filter(t => t.id !== id);
+          return { todos };
+        });
+      })
+      .catch(error => {
+        console.log('Error: Delete todo failed.', error)
+      });
   }
 
   render() {
@@ -94,7 +89,7 @@ class App extends Component {
         <div className="row">
           <div className="col-md-5">
             <h4>Todo Form</h4>
-            <TodoForm onAdd={this.addTodo} />
+            <TodoForm onAdd={this.handleAdd} />
           </div>
           <div className="col-md-7">
             <h4>Todo List</h4>

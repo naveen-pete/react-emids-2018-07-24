@@ -3,21 +3,21 @@
     {
       "id": 1,
       "text": "Get vegetables",
-      "done": true
+      "done": false
     },
     {
       "id": 2,
       "text": "Leave bike for service",
-      "done": false
+      "done": true
     },
     {
       "text": "todo 1",
-      "done": true,
+      "done": false,
       "id": 3
     },
     {
       "text": "todo 2",
-      "done": false,
+      "done": true,
       "id": 4
     }
   ]

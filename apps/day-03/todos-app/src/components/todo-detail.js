@@ -20,7 +20,7 @@ import React from 'react';
 const TodoDetail = (props) => {
   const { text, done, id } = props.todo;
   return (
-    <div className="card text-white bg-info mb-3">
+    <div className={`card text-white mb-3 ${done ? 'bg-success' : 'bg-info'}`}>
       <div className="card-body">
         <h5 className="card-title">{text}</h5>
         <p className="card-text"><strong>Status:</strong> <em>{done ? 'Done' : 'Pending'}</em></p>

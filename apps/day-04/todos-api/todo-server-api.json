@@ -1,0 +1,34 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "text": "Get vegetables",
+      "done": false
+    },
+    {
+      "id": 2,
+      "text": "Leave bike for service",
+      "done": true
+    },
+    {
+      "text": "todo 1",
+      "done": false,
+      "id": 3
+    },
+    {
+      "text": "todo 2",
+      "done": true,
+      "id": 4
+    },
+    {
+      "text": "new todo with server call",
+      "done": false,
+      "id": 5
+    },
+    {
+      "text": "new todo 2",
+      "done": false,
+      "id": 6
+    }
+  ]
+}
